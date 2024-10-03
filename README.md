@@ -1,68 +1,81 @@
-Caeser Cipher
+# Cryptography---19CS412-classical-techqniques
+## Register Number : 212221040021
+
+# Caeser Cipher
 Caeser Cipher using with different key values
 
-AIM:
+# AIM:
+
 To develop a simple C program to implement Caeser Cipher.
 
-DESIGN STEPS:
-Step 1:
-Design of Caeser Cipher algorithnm
+## DESIGN STEPS:
 
-Step 2:
-Implementation using C or pyhton code
+### Step 1:
 
-Step 3:
-Testing algorithm with different key values.
+Design of Caeser Cipher algorithnm 
 
-PROGRAM:
+### Step 2:
+
+Implementation using C code
+
+### Step 3:
+
+Testing algorithm with different key values. 
+
+## PROGRAM:
+```
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 
-int main()
- {
-    int key;
-    char s[1000];
+char ALPHABET[] = "abcdefghijklmnopqrstuvwxyz";
 
-    printf("Enter a plaintext to encrypt:\n");
-    fgets(s, sizeof(s), stdin);
-    printf("Enter key:\n");
-    scanf("%d", &key);
-
-    int n = strlen(s);
-
-    for (int i = 0; i < n; i++) 
-    {
-        char c = s[i];
-        if (c >= 'a' && c <= 'z') 
-        {
-            s[i] = 'a' + (c - 'a' + key) % 26;
-        }
-        else if (c >= 'A' && c <= 'Z')
-        {
-            s[i] = 'A' + (c - 'A' + key) % 26;
+void encrypt(char* text, int shift) {
+    for (int i = 0; text[i] != '\0'; i++) {
+        if (isalpha(text[i])) {
+            int index = tolower(text[i]) - 'a';
+            text[i] = ALPHABET[(index + shift) % 26];
         }
     }
-    printf("Encrypted message: %s\n", s);
+}
 
-    for (int i = 0; i < n; i++)
-    {
-        char c = s[i];
-        if (c >= 'a' && c <= 'z') 
-        {
-            s[i] = 'a' + (c - 'a' - key + 26) % 26; 
-        }
-        else if (c >= 'A' && c <= 'Z')
-        {
-            s[i] = 'A' + (c - 'A' - key + 26) % 26; 
-        }
+void decrypt(char* text, int shift) {
+    encrypt(text, -shift);
+}
+
+int main() {
+    char choice[10];
+    char text[100];
+    int shift;
+    printf("Do you want to encrypt or decrypt? ");
+    scanf("%s", choice);
+    printf("Enter the text: ");
+    scanf("%s", text);
+    printf("Enter the shift: ");
+    scanf("%d", &shift);
+
+    if (strcmp(choice, "encrypt") == 0) {
+        encrypt(text, shift);
+        printf("Encrypted text: %s\n", text);
+    } else if (strcmp(choice, "decrypt") == 0) {
+        decrypt(text, shift);
+        printf("Decrypted text: %s\n", text);
+    } else {
+        printf("Invalid choice.\n");
     }
-    printf("Decrypted message: %s\n", s);
 
     return 0;
 }
+```
+## OUTPUT:
+## Encryption:
+![Screenshot (473)](https://github.com/ashmistalin/Ceaser_cipher/assets/103128410/1625b02f-588c-46e7-9073-8451412bf4fe)
 
-OUTPUT:
-image
+## Decryption:
+![Screenshot (474)](https://github.com/ashmistalin/Ceaser_cipher/assets/103128410/dc0d29b1-b4ef-4c69-9ad8-ae0210e72526)
 
-RESULT:
+## RESULT:
 The program is executed successfully
+
+---------------------------------
+
