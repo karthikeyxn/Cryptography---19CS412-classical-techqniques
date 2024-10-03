@@ -70,10 +70,12 @@ int main() {
 ```
 ## OUTPUT:
 ## Encryption:
-![Screenshot (473)](https://github.com/ashmistalin/Ceaser_cipher/assets/103128410/1625b02f-588c-46e7-9073-8451412bf4fe)
+![image](https://github.com/user-attachments/assets/f9261c4e-9776-44db-9e2f-f4e95e361472)
+
 
 ## Decryption:
-![Screenshot (474)](https://github.com/ashmistalin/Ceaser_cipher/assets/103128410/dc0d29b1-b4ef-4c69-9ad8-ae0210e72526)
+![image](https://github.com/user-attachments/assets/c41b410f-bb30-4c4e-a5b4-22458fd3fb41)
+
 
 ## RESULT:
 The program is executed successfully
